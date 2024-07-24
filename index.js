@@ -3,6 +3,7 @@ function LinkedList() {
   let head = null;
 
   addLast(value);
+  addFirst(value);
 }
 
 // Node is a factory, containing a value property and a link to the nextNode, set both as null by default
@@ -12,7 +13,7 @@ function Node(value) {
   return { value, link: null };
 }
 
-// Adds a new node containing value to the end of the list
+// Adds a new node to the end of the list
 function addLast(value) {
   let newNode = new Node(value);
   if (head == null) {
@@ -24,4 +25,9 @@ function addLast(value) {
     }
     current.link = newNode;
   }
+}
+
+// Adds a new node to the start of the list
+function addFirst(value) {
+  head = new Node(value);
 }
