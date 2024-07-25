@@ -73,11 +73,15 @@ function LinkedList() {
   function pop() {
     if (length == 0) {
       return null;
-    } else {
-      let kindaLast = at(size() - 2);
-      kindaLast.nextNode = null;
-      length--;
     }
+
+    let newLastNode = headNode;
+    for (let i = 0; i < length - 2; i++) {
+      newLastNode = newLastNode.nextNode;
+    }
+
+    newLastNode.nextNode = null;
+    length--;
   }
 
   // contains(value) returns true if the passed in value is in the list and otherwise returns false
