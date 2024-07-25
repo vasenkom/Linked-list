@@ -119,6 +119,17 @@ function LinkedList() {
     return string + "null";
   }
 
+  // insertAt(value, index) that inserts a new node with the provided value at the given index
+  function insertAt(value, index) {
+    let newNode = Node(value);
+    let pointer = headNode;
+    for (let y = 0; y < index - 1; y++) {
+      pointer = pointer.nextNode;
+    }
+    newNode.nextNode = pointer.nextNode;
+    pointer.nextNode = newNode;
+  }
+
   return {
     prepend,
     append,
@@ -130,12 +141,17 @@ function LinkedList() {
     contains,
     find,
     toString,
+    insertAt,
   };
 }
 
+// usage
 const list = LinkedList();
 list.append("dog");
 list.append("cat");
 list.append("parrot");
 list.append("hamster");
+list.insertAt("cici", 2);
 console.log(list.toString());
+
+module.exports = { Node, LinkedList };
