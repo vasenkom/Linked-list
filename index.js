@@ -116,7 +116,8 @@ function LinkedList() {
       string += "(" + pointer.value + ") ->";
       pointer = pointer.nextNode;
     }
-    return string + "null";
+    string += "(" + pointer.value + ") -> null";
+    return string;
   }
 
   // insertAt(value, index) that inserts a new node with the provided value at the given index
@@ -128,6 +129,21 @@ function LinkedList() {
     }
     newNode.nextNode = pointer.nextNode;
     pointer.nextNode = newNode;
+  }
+
+  //   removeAt(index) that removes the node at the given index
+  function removeAt(index) {
+    let pointer = headNode;
+    if (length == 0) {
+      return null;
+    } else {
+      for (let y = 0; y < index; y++) {
+        pointer = pointer.nextNode;
+      }
+      let wantToDelete = at(index - 1);
+      wantToDelete.nextNode = pointer.nextNode;
+      length--;
+    }
   }
 
   return {
@@ -142,16 +158,8 @@ function LinkedList() {
     find,
     toString,
     insertAt,
+    removeAt,
   };
 }
-
-// usage
-const list = LinkedList();
-list.append("dog");
-list.append("cat");
-list.append("parrot");
-list.append("hamster");
-list.insertAt("cici", 2);
-console.log(list.toString());
 
 module.exports = { Node, LinkedList };
