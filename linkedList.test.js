@@ -54,3 +54,13 @@ test("test if at(index) returns the node at the given index", () => {
   expect(list.at(1)).toBe("pizza");
   expect(list.at(0)).toBe("cake");
 });
+
+test("test if pop removes the last element from the list", () => {
+  const list = new LinkedList();
+  list.append("cake");
+  list.append("pizza");
+  list.append("pasta");
+  list.append("salad");
+  list.pop();
+  expect(list.toString()).toBe("(cake) ->(pizza) ->(pasta) -> null");
+});
