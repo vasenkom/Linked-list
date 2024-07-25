@@ -66,7 +66,7 @@ function LinkedList() {
     for (let n = 0; n < index; n++) {
       pointer = pointer.nextNode;
     }
-    return pointer;
+    return pointer.value;
   }
 
   // pop removes the last element from the list
