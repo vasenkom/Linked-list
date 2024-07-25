@@ -64,3 +64,34 @@ test("test if pop removes the last element from the list", () => {
   list.pop();
   expect(list.toString()).toBe("(cake) ->(pizza) ->(pasta) -> null");
 });
+
+test("check if contains(value) returns true if the passed in value is in the list and otherwise returns false", () => {
+  const list = new LinkedList();
+  list.append("chicken");
+  list.append("star");
+  list.append("tea");
+  expect(list.contains("tea")).toBe(true);
+  expect(list.contains("cat")).toBe(false);
+});
+
+test("test if insertAt(value, index) inserts a new node with the provided value at the given index", () => {
+  const list = new LinkedList();
+  list.append("chicken");
+  list.append("cat");
+  list.append("dog");
+  list.insertAt("tomato", 2);
+  expect(list.toString()).toBe("(chicken) ->(cat) ->(tomato) ->(dog) -> null");
+});
+
+test("test if removeAt(index) removes the node at the given index", () => {
+  const list = new LinkedList();
+  list.append("chicken");
+  list.append("cat");
+  list.append("mouse");
+  list.append("dog");
+  list.append("hamster");
+  list.removeAt(3);
+  expect(list.toString()).toBe(
+    "(chicken) ->(cat) ->(mouse) ->(hamster) -> null"
+  );
+});

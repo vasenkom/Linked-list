@@ -124,7 +124,7 @@ function LinkedList() {
     return string;
   }
 
-  // insertAt(value, index) that inserts a new node with the provided value at the given index
+  // insertAt(value, index) inserts a new node with the provided value at the given index
   function insertAt(value, index) {
     let newNode = Node(value);
     let pointer = headNode;
@@ -135,19 +135,19 @@ function LinkedList() {
     pointer.nextNode = newNode;
   }
 
-  //   removeAt(index) that removes the node at the given index
+  // removeAt(index) removes the node at the given index
   function removeAt(index) {
-    let pointer = headNode;
+    let previousNode = headNode;
     if (length == 0) {
       return null;
     } else {
-      for (let y = 0; y < index; y++) {
-        pointer = pointer.nextNode;
+      for (let l = 0; l < index - 1; l++) {
+        previousNode = previousNode.nextNode;
       }
-      let wantToDelete = at(index - 1);
-      wantToDelete.nextNode = pointer.nextNode;
-      length--;
+      let currentNode = previousNode.nextNode;
+      previousNode.nextNode = currentNode.nextNode;
     }
+    length--;
   }
 
   return {
