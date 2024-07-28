@@ -1,7 +1,7 @@
 const { Node, LinkedList } = require("./index");
 
 test("Test if nodes are being added to List", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   list.append("dog");
   list.append("cat");
   list.append("parrot");
@@ -14,7 +14,7 @@ test("Test if nodes are being added to List", () => {
 });
 
 test("test if function prepend adds a new node to the start of the list", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   list.append("dog");
   list.append("cat");
   list.prepend("owl");
@@ -22,7 +22,7 @@ test("test if function prepend adds a new node to the start of the list", () => 
 });
 
 test("test if function size correctly returns the length of the list", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   list.append("dog");
   list.append("cat");
   list.append("snake");
@@ -31,12 +31,12 @@ test("test if function size correctly returns the length of the list", () => {
 });
 
 test("test if function size correctly returns the length of the list if no nodes are added", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   expect(list.size()).toBe(null);
 });
 
 test("test if function head returns the first node in the list and tail returns the last node in the list", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   list.append("dog");
   list.append("cat");
   list.append("snake");
@@ -46,7 +46,7 @@ test("test if function head returns the first node in the list and tail returns 
 });
 
 test("test if at(index) returns the node at the given index", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   list.append("cake");
   list.append("pizza");
   list.append("pasta");
@@ -56,7 +56,7 @@ test("test if at(index) returns the node at the given index", () => {
 });
 
 test("test if pop removes the last element from the list", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   list.append("cake");
   list.append("pizza");
   list.append("pasta");
@@ -66,7 +66,7 @@ test("test if pop removes the last element from the list", () => {
 });
 
 test("check if contains(value) returns true if the passed in value is in the list and otherwise returns false", () => {
-  const list = new LinkedList();
+  const list = LinkedList();
   list.append("chicken");
   list.append("star");
   list.append("tea");
